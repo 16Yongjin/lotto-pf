@@ -18,9 +18,15 @@ const getMessage = (content) => {
 }
 
 const PORT = 7777
+
 const app = express()
+
 app.use(cors())
+
 app.use(bodyParser.json())
+
 app.get('/keyboard', (req, res) => res.send(keyboard))
+
 app.post('/message', ({ body: { content } }, res) => res.send(getMessage(content)))
+
 app.listen(PORT, () => console.log(`Server on port ${PORT}`))
